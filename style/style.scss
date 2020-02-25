@@ -1,0 +1,506 @@
+
+@import 'normalize';
+@import 'mixins';
+@import 'config';
+@import 'icons';
+
+
+
+/*                      LAYOUT
+------------------------------------------------------------------------- */
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/*                      TYPOGRAPHY
+------------------------------------------------------------------------- */
+
+body {
+  font-family: $font;
+  font-size: 16px;
+  font-weight: 300;
+  background-color: $color-bg;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+p,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: $color-light;
+  margin: 0 0 0.7em 0;
+  padding: 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3em;
+  font-weight: $font-weight-bold;
+  color: $color-dark;
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  font-size: 0.8em;
+  font-weight: 300;
+  color: $color-gray;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+  @include ellipsis;
+  line-height: 1.6em;
+  text-align: center;
+  background-color: $color-dark;
+}
+
+button,
+#map {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+
+/*                      NAV BAR
+------------------------------------------------------------------------- */
+
+.navBar {
+  width: 100%;
+  position: fixed;
+  bottom: -$navbar-height - 40px;
+  @include transition( bottom, 0.4s );
+
+  &.visible {
+    bottom: 0;
+  }
+}
+
+.quantities {
+  text-align: center;
+  @include flex;
+  @include flexJustified;
+  -webkit-align-items: flex-end;
+          align-items: flex-end;
+
+  li {
+    @include flexbox;
+    @include disableSelect;
+    position: relative;
+  }
+}
+
+.bar-btn {
+  cursor: pointer;
+
+  &:hover {
+    .bar {
+      opacity: 0.8;
+    }
+
+    h3 {
+      color: $color-light;
+    }
+  }
+}
+
+.bar {
+  height: $navbar-height;
+  @include transition( height, 0.4s );
+  @include iconBackground;
+  background-color: $color-gray;
+  background-position: left 50% bottom 5px;
+  cursor: pointer;
+}
+
+.qty {
+  position: absolute;
+  top: -1.2em;
+  width: 100%;
+  line-height: 1.2em;
+  display: none;
+  pointer-events: none;
+
+  &:after {
+    content: 'g';
+    font-size: 0.7em;
+  }
+}
+
+.legendBar {
+  background-color: $color-dark;
+  @include clearfix;
+  font-size: 0.9em;
+
+  .legend-redmeat {
+    text-align: center;
+    width: 100% / 7 * 3;
+    float: left;
+    cursor: pointer;
+    @include disableSelect;
+  }
+
+  .legend-grams {
+    text-align: center;
+    width: 100% / 7 * 4;
+    float: left;
+    display: none;
+  }
+}
+
+.redmeatlabel {
+  background-color: #555;
+}
+
+
+
+/*                      TOP BAR
+------------------------------------------------------------------------- */
+
+.topBar {
+  position: absolute;
+  top: -8em;
+  left: 0;
+  width: 100%;
+  padding: 0.3em 0.8em;
+  pointer-events: none;
+  @include transition( top, 0.3s );
+
+  &.visible {
+    top: 0;
+  }
+
+  h2 {
+    @include ellipsis;
+    margin-right: 120px;
+
+    &.upper {
+      text-transform: uppercase;
+    }
+  }
+
+  p {
+    float: left;
+    clear: both;
+    font-size: 1em;
+    color: $color-gray;
+    line-height: 1.2em;
+  }
+
+  span {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    vertical-align: middle;
+    font-size: 1.2em;
+    font-weight: $font-weight-bold;
+    text-align: center;
+    color: $color-bg;
+    background-color: $color-darkgray;
+    border-radius: 100%;
+    @include transition( background-color, 0.3s );
+
+    &.exceeding {
+      background-color: $color-red;
+    }
+  }
+}
+
+#topEaters {
+  top: -10em;
+
+  &.visible {
+    top: 0;
+    -webkit-transition-delay: 800ms;
+    -moz-transition-delay: 800ms;
+    -o-transition-delay: 800ms;
+    transition-delay: 800ms;
+  }
+
+  ol {
+    counter-reset: eaters;
+  }
+
+  li {
+    float: left;
+    padding: 0.2em 0.3em;
+    counter-increment: eaters;
+    font-size: 1em;
+    color: $color-gray;
+    line-height: 1.3em;
+    text-transform: uppercase;
+
+    &:before {
+      content: counter( eaters ) ' ';
+      background-color: $color-gray;
+      color: $color-light;
+      font-weight: $font-weight-bold;
+      border-radius: 100%;
+      width: 1.4em;
+      height: 1.4em;
+      line-height: 1.4em;
+      margin-right: 0.3em;
+      text-align: center;
+      display: inline-block;
+      vertical-align: 0;
+    }
+
+    & + li {
+      margin-left: 5px;
+    }
+  }
+}
+
+
+
+/*                      MAP
+------------------------------------------------------------------------- */
+
+#map {
+  margin-top: 10px;
+
+  svg {
+    stroke-width: 0px;
+    fill: $color-light;
+
+    path {
+      @include transition(fill, 0.3s);
+    }
+
+    path.selected,
+    g.selected {
+      fill: $color-black !important;
+    }
+  }
+}
+
+
+
+/*                      INTRO
+------------------------------------------------------------------------- */
+
+.intro-screen {
+  background-color: rgba( 0, 0, 0, 0.8 );
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  @include transition( transform, 0.6s );
+  @include translateY( -100% );
+  overflow: auto;
+  @include flex;
+  @include flexVerticalCenter;
+
+  &.visible {
+    @include translateY( 0 );
+  }
+}
+
+.intro-text {
+  margin: auto;
+  padding: 0 10px;
+  width: 100%;
+  max-width: 440px;
+  text-align: left;
+
+  h1 {
+    text-align: left;
+    line-height: 1;
+  }
+
+  p {
+    color: $color-light;
+    font-size: 1.0em;
+    line-height: 1.4em;
+    padding-bottom: 1em;
+
+    a {
+      color: $color-light;
+      border-bottom: 1px solid rgba( white, 0.4 );
+
+      &:hover {
+        border-bottom: 1px solid rgba( white, 0.8 );
+      }
+    }
+  }
+}
+
+.btn {
+  width: 100%;
+  height: $navbar-height;
+  line-height: $navbar-height;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background-color: $color-darkgray;
+  color: $color-light;
+  margin-top: 0.5em;
+  text-transform: uppercase;
+  font-size: 0.9em;
+
+  &:hover {
+    background-color: $color-gray;
+  }
+}
+
+.helpbtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.intro-footer {
+  position: relative;
+  margin-top: 30px;
+
+  span {
+    color: $color-gray;
+    text-transform: uppercase;
+    line-height: 30px;
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 0.8em;
+    vertical-align: top;
+  }
+}
+
+.intro-share {
+  position: absolute;
+  left: 5px;
+  top: 0;
+
+  a {
+    margin-right: 10px;
+  }
+}
+
+.intro-gitd {
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+
+.iconBtn {
+  width: 30px;
+  height: 30px;
+  @include iconBackground;
+  display: inline-block;
+  opacity: 0.3;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+
+
+/*                      LOADING SPINNER
+------------------------------------------------------------------------- */
+
+.spinner {
+  $spinner-size: 4em;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  width: $spinner-size;
+  height: $spinner-size;
+  margin-left: -$spinner-size/2;
+  margin-top: -$spinner-size/2;
+  border-bottom: 1px solid #999;
+  vertical-align: middle;
+  overflow: hidden;
+  -webkit-animation: 0.5s spinner linear infinite;
+     -moz-animation: 0.5s spinner linear infinite;
+          animation: 0.5s spinner linear infinite;
+
+  &,
+  &:after {
+    border-radius: 100%;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid #999;
+    opacity: 0.5;
+  }
+}
+
+@-webkit-keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spinner {
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/*                      MEDIA QUERIES
+------------------------------------------------------------------------- */
+
+@import 'mediaqueries';
+
+

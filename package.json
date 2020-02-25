@@ -1,0 +1,13 @@
+{
+  "name": "MeatMap",
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-sass": "latest",
+    "smash": "0",
+    "d3": "3"
+  }
+}

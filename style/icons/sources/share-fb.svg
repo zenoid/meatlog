@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15575) - http://www.bohemiancoding.com/sketch -->
+    <title>share-fb</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Other-icons" sketch:type="MSArtboardGroup" transform="translate(-220.000000, -10.000000)" fill="#FFFFFF">
+            <path d="M225.000508,10 C222.250352,10 220,12.2504102 220,15.000625 L220,34.9994336 C220,37.7515234 222.250352,40 225.000508,40 L234.999766,40 L234.999765,29 L232,29 L232,24.0625 L234.999766,24 L234.999766,21.71875 C234.999766,18.35875 237.397988,16 240.5,16 L244,16 L244,20 L241,20 C240.557617,20 240,20.6952734 240,21.5 L240,24 L244,24 L244,29 L240,29 L240,39.9999409 L245.000313,39.9999414 C247.750527,39.9999414 250,37.7515234 250,34.9993164 L250,15.000625 C250,12.2504102 247.750527,10 245.000313,10 L225.000508,10 Z" id="share-fb" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

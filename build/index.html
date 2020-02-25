@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" xmlns:og="https://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Do we eat too much meat?</title>
+  <meta name="description" content="In most countries the average consumption of red meat is way higher of the recommended intake. How much and what kind of meat is eaten in the world every day, exactly?">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <meta property="og:site_name" content="Ghost in the Data">
+  <meta property="fb:app_id" content="173168549704804">
+  <meta property="og:title" content="Do we eat too much meat?">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ghostinthedata.com/meatmap/favicon.png">
+  <meta property="og:url" content="https://ghostinthedata.com/meatmap/">
+  <meta property="og:description" content="In most countries the average consumption of red meat is way higher of the recommended intake. How much and what kind of meat is eaten in the world every day, exactly?">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Do we eat too much meat?">
+  <meta name="twitter:description" content="In most countries the average consumption of red meat is way higher of the recommended intake. How much and what kind of meat is eaten in the world every day, exactly?">
+  <meta name="twitter:image" content="https://ghostinthedata.com/meatmap/favicon.png">
+
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300+700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+
+  <div id="map"></div>
+
+  <div class="topBar" id="countryInfo">
+    <h2 class="upper"></h2>
+    <p>Red meat total: <span></span> times the recommended max intake</p>
+  </div>
+
+  <div class="topBar" id="topEaters">
+    <h2></h2>
+    <ol>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+  </div>
+
+  <div class="navBar">
+    <ul class="quantities">
+      <li class="bovine">
+        <h2 class="qty"></h2>
+        <div class="bar-btn">
+          <div class="bar icon-bovine"></div>
+          <h3 class="redmeatlabel">Bovine</h3>
+        </div>
+      </li>
+      <li class="pig">
+        <h2 class="qty"></h2>
+        <div class="bar-btn">
+          <div class="bar icon-pig"></div>
+          <h3 class="redmeatlabel">Pig</h3>
+        </div>
+      </li>
+      <li class="sheep">
+        <h2 class="qty"></h2>
+        <div class="bar-btn">
+          <div class="bar icon-sheep"></div>
+          <h3 class="redmeatlabel">Mutton/Goat</h3>
+        </div>
+      </li>
+      <li class="poultry">
+        <h2 class="qty"></h2>
+        <div class="bar-btn">
+          <div class="bar icon-poultry"></div>
+          <h3>Poultry</h3>
+        </div>
+      </li>
+      <li class="offals">
+        <h2 class="qty"></h2>
+        <div class="bar-btn">
+          <div class="bar icon-offals"></div>
+          <h3>Offals</h3>
+        </div>
+      </li>
+      <li class="other">
+        <h2 class="qty"></h2>
+        <div class="bar-btn">
+          <div class="bar icon-other"></div>
+          <h3>Other meat</h3>
+        </div>
+      </li>
+      <li class="favorites">
+        <div class="bar-btn">
+          <div class="bar icon-favorite"></div>
+          <h3>Favorite</h3>
+        </div>
+      </li>
+    </ul>
+    <div class="legendBar">
+      <h3 class="legend-redmeat">Red meat</h3>
+      <h3 class="legend-grams">(Daily per capita intake)</h3>
+    </div>
+  </div>
+
+  <div class="helpbtn icon-help"></div>
+
+  <div class="intro-screen">
+    <div class="intro-text">
+      <h1>Do we eat too much meat?</h1>
+      <p>The <a href="https://www.wcrf.org/int/research-we-fund/cancer-prevention-recommendations/animal-foods" target="_blank">World Cancer Research Fund</a> recommends to limit our consumption of red meat (bovine, pig, mutton and goat) to no more than 300 g (11 oz) a week – that's about 43 g (1.5 oz) a day. But in most countries the average consumption of red meat is way higher.</p>
+      <p>How much and what kind of meat is eaten in the world every day, exactly? Move over the map to learn it, or use the bottom labels to highlight the top eaters of each kind.</p>
+      <p>Source: <a href="https://faostat3.fao.org" target="_blank">UN Food and Agriculture Organization</a>, 2011</p>
+      <button class="btn">Let's see</button>
+      <div class="intro-footer">
+        <div class="intro-share">
+          <a href="https://twitter.com/intent/tweet?text=Do%20we%20eat%20too%20much%20meat%3F&url=https://ghostinthedata.com/meatmap&via=ghostinthedata" target="_blank" class="iconBtn icon-share-twitter"></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://ghostinthedata.com/meatmap/" target="_blank" class="iconBtn icon-share-fb"></a>
+          <span>share</span>
+        </div>
+        <div class="intro-gitd">
+          <span>Ghost in the Data</span>
+          <a href="https://www.ghostinthedata.com" target="_blank" class="iconBtn icon-gitd"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span class="spinner"></span>
+
+  <script src="js/scripts.js"></script>
+
+</body>
+</html>
